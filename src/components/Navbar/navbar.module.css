@@ -1,0 +1,10 @@
+.navbar {
+    width: 375px;
+    display: flex;
+    gap: 20px;
+    font-size: 18px;
+}
+
+.button {
+    background-color: rgba(0, 159, 223, 0.15);
+}
