@@ -33,6 +33,11 @@
   background-clip: border-box;
 }
 
+.withClasses {
+  border: 1px solid #009fdf;
+  border-radius: 50%;
+}
+
 .selectedWeek {
   background-color: #e6e6e6; /* Choose your desired background color for the selected week */
 }

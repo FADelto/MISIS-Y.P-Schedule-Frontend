@@ -48,6 +48,7 @@ export default function Pagination({ swipe }) {
         handleWeekChange={handleWeekChange}
         selectedDate={selectedDate}
         handleDayChange={handleDayChange}
+        isDateWithClasses={isDateWithClasses}
         swipe={swipe}
       />
     </div>

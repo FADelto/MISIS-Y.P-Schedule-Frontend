@@ -10,6 +10,7 @@ export default function DatePicker({
   selectedDate,
   handleDayChange,
   swipe,
+  isDateWithClasses,
 }) {
   const [isActive, setIsActive] = useState(false);
 
@@ -48,6 +49,7 @@ export default function DatePicker({
             handleWeekChange={handleWeekChange}
             selectedDate={selectedDate}
             handleDayChange={handleDayChange}
+            isDateWithClasses={isDateWithClasses}
           />
         )}
       </div>

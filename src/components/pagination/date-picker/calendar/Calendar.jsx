@@ -3,7 +3,12 @@ import styles from "./calendar.module.css";
 import CalendarNav from "./calendar-nav/CalendarNav";
 import CalendarBlock from "./calendar-block/CalendarBlock";
 
-function Calendar({ handleWeekChange, selectedDate, handleDayChange }) {
+function Calendar({
+  handleWeekChange,
+  selectedDate,
+  handleDayChange,
+  isDateWithClasses,
+}) {
   const [date, setDate] = useState(new Date());
   const [currentDay, setCurrentDay] = useState(new Date());
   //const [selectedDate, setSelectedDate] = useState(null);
@@ -28,6 +33,7 @@ function Calendar({ handleWeekChange, selectedDate, handleDayChange }) {
         currentDay={selectedDate}
         select={handleDayChange}
         handleWeekChange={handleWeekChange}
+        isDateWithClasses={isDateWithClasses}
       />
       <section className={styles.navButtons}>
         <CalendarNav onPrevClick={handlePrevClick} />

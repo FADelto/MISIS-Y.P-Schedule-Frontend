@@ -7,6 +7,7 @@ export default function CalendarBlock({
   currentDay,
   select,
   handleWeekChange,
+  isDateWithClasses,
 }) {
   const [selectedWeek, setSelectedWeek] = useState(null);
   const daysOfWeek = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
@@ -81,7 +82,9 @@ export default function CalendarBlock({
                 return (
                   <td
                     key={j}
-                    className={isCurrentDay && styles.current}
+                    className={`${isCurrentDay && styles.current} ${
+                      isDateWithClasses(day) && styles.withClasses
+                    }`}
                     onClick={handleDateSelection}
                   >
                     {day}
