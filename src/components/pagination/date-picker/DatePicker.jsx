@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./datePicker.module.css";
 import arrow from "../../../assets/images/dropdown-arrow.png";
 import Calendar from "./calendar/Calendar";
@@ -9,10 +9,9 @@ export default function DatePicker({
   handleWeekChange,
   selectedDate,
   handleDayChange,
+  swipe,
 }) {
   const [isActive, setIsActive] = useState(false);
-
-  console.log(selectedDate);
 
   const formatDate = (date) => {
     const options = { day: "numeric", month: "long", year: "numeric" };
@@ -26,6 +25,10 @@ export default function DatePicker({
   const handleOpenCalendar = () => {
     setIsActive(!isActive);
   };
+
+  if (swipe !== isActive) {
+    setIsActive(swipe);
+  }
 
   return (
     <div className={isActive ? styles.openCalendar : styles.pickerContainer}>
