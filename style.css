@@ -1,0 +1,96 @@
+.main {
+  background-color: #181a1f;
+  padding: 11px 20px;
+}
+
+.card {
+  background-color: #181a1f;
+  display: grid;
+  grid-template-rows: repeat(4, 1fr);
+  gap: 13px;
+}
+
+.class {
+  background-color: #1f2229;
+  display: grid;
+  grid-template-columns: 49px 1fr 68.479px;
+  border-radius: 15px;
+}
+
+.block1 {
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+  align-content: center;
+}
+
+.block2 {
+  margin-left: 10px;
+}
+
+.title {
+  color: #fff;
+  font-feature-settings: "clig" off, "liga" off;
+  font-family: SF UI Text, sans-serif;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px; /* 120% */
+  letter-spacing: -0.078px;
+  margin-top: 6px;
+}
+
+.time {
+  color: #bbb;
+  font-feature-settings: "clig" off, "liga" off;
+  font-family: SF UI Text, sans-serif;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 7px; /* 138.462% */
+  letter-spacing: -0.078px;
+  align-self: center;
+  justify-self: center;
+  text-align: center;
+}
+
+.type {
+  color: #333;
+  font-feature-settings: "clig" off, "liga" off;
+  font-family: SF UI Text, sans-serif;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 18px; /* 163.636% */
+  letter-spacing: -0.078px;
+  text-align: center;
+  border-radius: 0 0 0 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.type1 {
+  background-color: #3cb371;
+}
+
+.type2 {
+  background-color: #daa520;
+}
+
+.description {
+  color: #a7a8a9;
+  font-feature-settings: "clig" off, "liga" off;
+  font-family: SF UI Text, sans-serif;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px; /* 120% */
+  letter-spacing: -0.078px;
+  margin-top: 10px;
+}
+
+.line {
+    width: 82px;
+    height: 9px;
+    border-bottom: 1px solid #BBBBBB;
+}
