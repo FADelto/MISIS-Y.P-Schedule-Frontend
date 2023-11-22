@@ -14,22 +14,26 @@ const Navbar = () => {
         // Seed Token
         colorPrimary: 'rgba(0, 159, 223, 0.15)',
         borderRadius: '15px',
-        colorText: '#009FDF'
+        colorText: '#009FDF',
       },
     }}>
       <div class={styles.navbar}>
         <Button icon={<ScheduleOutlined />}
-              type={currentPage === 'Расписание' ? 'primary' : 'text'}
+              ghost={true}
+              type={currentPage === 'Расписание' ? 'primary' : 'link'}
               onClick={() => {setCurrentPage('Расписание')}}>{currentPage === 'Расписание' ? currentPage : ''}</Button>
         <Button icon={<UnorderedListOutlined />}
-              type={currentPage === 'Задачи' ? 'primary' : 'text'}
+              ghost={true}
+              type={currentPage === 'Задачи' ? 'primary' : 'link'}
               onClick={() => {setCurrentPage('Задачи')}}>{currentPage === 'Задачи' ? currentPage : ''}
         </Button>
         <Button icon={<BellOutlined />}
-              type={currentPage === 'Новости' ? 'primary' : 'text'} 
+              ghost={true}
+              type={currentPage === 'Новости' ? 'primary' : 'link'} 
               onClick={() => setCurrentPage('Новости')}>{currentPage === 'Новости' ? currentPage : ''}</Button>
         <Button icon={<SettingOutlined />}
-              type={currentPage === 'Настройки' ? 'primary' : 'text'} 
+              ghost={true}
+              type={currentPage === 'Настройки' ? 'primary' : 'link'} 
               onClick={() => setCurrentPage('Настройки')}>{currentPage === 'Настройки' ? currentPage : ''}</Button>
       </div>
     </ConfigProvider>
