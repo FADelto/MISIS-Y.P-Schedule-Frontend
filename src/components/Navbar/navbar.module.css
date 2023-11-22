@@ -2,9 +2,20 @@
     width: 375px;
     display: flex;
     gap: 20px;
-    font-size: 18px;
+    font-size: 20px;
+}
+
+.button:disabled {
+    cursor: default;
 }
 
 .button {
-    background-color: rgba(0, 159, 223, 0.15);
+    font-size: 15px;
+    padding: 20px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+
+
+
