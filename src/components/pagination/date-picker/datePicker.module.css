@@ -1,0 +1,79 @@
+.pickerContainer {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  /* border: 1px solid blue; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  height: 40px;
+  transition: height 0.3s ease;
+  background-color: rgba(24, 26, 31, 1);
+  box-sizing: border-box;
+}
+
+.openCalendar {
+  width: 100%;
+  /* border: 1px solid blue; */
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  transition: height 0.3s ease;
+  box-sizing: border-box;
+  animation: forwards smoothBlur 0.3s ease;
+}
+
+.dateHeader {
+  /* border: 1px solid green; */
+  width: fit-content;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-height: 20px;
+  top: 5px;
+  gap: 5px;
+  /* transition: transform 0.3s ease; */
+}
+
+.arrow {
+  position: relative;
+  vertical-align: middle;
+  height: 50%;
+  transition: transform 0.3s ease;
+}
+
+.arrow.active {
+  transform: rotate(180deg);
+  transition: transform 0.3s ease;
+}
+
+.calendarContOFF {
+  width: 100%;
+  opacity: 0;
+}
+
+.calendarContON {
+  width: 100%;
+  opacity: 1;
+  transition: all 0.4s ease;
+}
+
+@keyframes smoothBlur {
+  0% {
+    background-color: rgba(24, 26, 31, 0);
+    backdrop-filter: blur(0px);
+  }
+  100% {
+    background-color: rgba(24, 26, 31, 0.3);
+    backdrop-filter: blur(10px);
+  }
+}

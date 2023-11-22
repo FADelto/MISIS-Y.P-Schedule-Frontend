@@ -1,0 +1,246 @@
+.calendarPageContainer {
+  position: relative;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-pack: distribute;
+  justify-content: flex-start;
+  top: 5px;
+  height: 40%;
+  width: 100%;
+  background-color: rgb(24, 26, 31);
+  opacity: 1;
+  transition: all 0.3s ease;
+  /* border: 1px solid blue; */
+}
+
+.current {
+  background-color: #009fdf;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  border-radius: 50%;
+  color: white;
+  font-weight: 500;
+  background-clip: border-box;
+}
+
+.selectedWeek {
+  background-color: #e6e6e6; /* Choose your desired background color for the selected week */
+}
+
+.darkCurrent {
+  background-color: #6b728e;
+}
+
+tr {
+  text-align: center;
+}
+
+.calendarDiv {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  /* border: 1px solid white; */
+}
+
+.darkCalendarDiv {
+  color: rgb(202, 202, 202);
+}
+
+/* .calendarAndButtonsBlock {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+  } */
+
+.navButtons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  /* border: 1px solid red; */
+  min-width: 150px;
+}
+
+.btn button {
+  position: relative;
+  background-color: #dfdfdf;
+  border: none;
+  border-radius: 5px;
+  color: #333;
+  cursor: pointer;
+  font-size: 1em;
+  padding: 0.5em 1em;
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.btn button:hover {
+  background-color: #333;
+  color: #fff;
+}
+
+.darkBtn button:hover {
+  background-color: #6b728e;
+  color: rgb(202, 202, 202);
+}
+
+.notPickedDateText {
+  color: rgba(0, 0, 0, 0.324);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.darkNotPickedDateText {
+  color: rgb(202, 202, 202);
+}
+
+.notPickedDateSettings {
+  /* transition: 2s ease; */
+  /* font-size: 25px; */
+  position: relative;
+  top: 10px;
+  bottom: 0px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 100%;
+  height: 200px;
+  border: 3px solid rgba(95, 95, 95, 0.478);
+  border-radius: 30px;
+  border-style: dashed;
+  -webkit-transition: 0.3s ease;
+  -o-transition: 0.3s ease;
+  transition: 0.3s ease;
+  /* margin-bottom: 5px; */
+}
+
+.darkNotPickedDateSettings {
+  border-color: rgba(202, 202, 202, 0.555);
+}
+
+.pickedDateSettings {
+  -webkit-transition: 0.3s ease;
+  -o-transition: 0.3s ease;
+  transition: 0.3s ease;
+  /* font-size: 25px; */
+  position: relative;
+  top: 10px;
+  bottom: 0px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 100%;
+  height: 200px;
+  border: 0px solid rgba(95, 95, 95, 0.478);
+  border-radius: 30px;
+  -webkit-box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.3);
+  /* margin-bottom: 5px; */
+  /* border: 1px solid red; */
+}
+
+@media screen and (min-width: 500px) {
+  .calendarDiv {
+    position: relative;
+    min-width: 400px;
+    height: 400px;
+    top: 0%;
+  }
+  td {
+    min-width: 50px;
+    height: 50px;
+    border-radius: 40%;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  td:not(:empty):hover {
+    cursor: pointer;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    border-radius: 50%;
+  }
+
+  .darkTd:not(:empty):hover {
+    border: 1px solid #6b728e;
+  }
+
+  .lightTd:not(:empty):hover {
+    border: 0.5px solid red;
+  }
+}
+
+@media screen and (max-width: 499px) {
+  .calendarDiv {
+    position: relative;
+    min-width: 350px;
+    /* min-height: 350px; */
+    top: 0%;
+  }
+  td {
+    min-width: 45px;
+    height: 45px;
+  }
+  td:active {
+    -webkit-transition: 0.3s ease;
+    -o-transition: 0.3s ease;
+    transition: 0.3s ease;
+    font-size: 20px;
+  }
+}
