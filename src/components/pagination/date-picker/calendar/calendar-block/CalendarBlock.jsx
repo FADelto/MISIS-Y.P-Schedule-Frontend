@@ -56,8 +56,6 @@ export default function CalendarBlock({
         (selectedDay.getDay() === 0 ? -6 : 1)
     );
 
-    console.log(firstDayOfWeek);
-
     select(selectedDay);
     handleWeekChange(firstDayOfWeek);
   };

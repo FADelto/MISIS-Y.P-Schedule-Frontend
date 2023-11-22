@@ -3,7 +3,7 @@ import styles from "./pagination.module.css";
 import DatePicker from "./date-picker/DatePicker";
 import DayCircles from "./day-circles/DayCircles";
 
-export default function Pagination() {
+export default function Pagination({ swipe }) {
   const today = new Date();
   const weekStart = new Date(today);
   weekStart.setDate(
@@ -48,6 +48,7 @@ export default function Pagination() {
         handleWeekChange={handleWeekChange}
         selectedDate={selectedDate}
         handleDayChange={handleDayChange}
+        swipe={swipe}
       />
     </div>
   );
