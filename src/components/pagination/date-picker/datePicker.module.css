@@ -7,8 +7,8 @@
   flex-direction: column;
   align-items: center;
   color: white;
-  height: 40px;
-  transition: height 0.3s ease;
+  /* height: 40px; */
+  transition: all 0.3s ease;
   background-color: rgba(24, 26, 31, 1);
   box-sizing: border-box;
 }
@@ -23,10 +23,27 @@
   color: white;
   top: 0;
   left: 0;
-  height: 100vh;
-  transition: height 0.3s ease;
+  height: 100%;
+  /* transition: height 0.3s ease; */
   box-sizing: border-box;
   animation: forwards smoothBlur 0.3s ease;
+  overflow-y: scroll;
+  transition: all 0.3s ease;
+  opacity: 0;
+  animation: smoothlyAppear forwards 0.5s ease;
+}
+
+@keyframes smoothlyAppear {
+  0% {
+    opacity: 0;
+    background-color: rgba(24, 26, 31, 0);
+    backdrop-filter: blur(0px);
+  }
+  100% {
+    opacity: 1;
+    background-color: rgba(24, 26, 31, 1);
+    backdrop-filter: blur(10px);
+  }
 }
 
 .dateHeader {
@@ -47,7 +64,7 @@
 .arrow {
   position: relative;
   vertical-align: middle;
-  height: 50%;
+  height: 10px;
   transition: transform 0.3s ease;
 }
 
@@ -61,11 +78,11 @@
   opacity: 0;
 }
 
-.calendarContON {
+/* .calendarContON {
   width: 100%;
   opacity: 1;
   transition: all 0.4s ease;
-}
+} */
 
 @keyframes smoothBlur {
   0% {

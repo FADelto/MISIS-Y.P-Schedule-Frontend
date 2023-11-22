@@ -9,7 +9,6 @@ export default function DatePicker({
   handleWeekChange,
   selectedDate,
   handleDayChange,
-  swipe,
   isDateWithClasses,
 }) {
   const [isActive, setIsActive] = useState(false);
@@ -27,20 +26,18 @@ export default function DatePicker({
     setIsActive(!isActive);
   };
 
-  if (swipe !== isActive) {
-    setIsActive(swipe);
-  }
-
   return (
     <div className={isActive ? styles.openCalendar : styles.pickerContainer}>
-      <div className={styles.dateHeader} onClick={handleOpenCalendar}>
-        {formatDate(selectedDate)}{" "}
-        <img
-          className={`${styles.arrow} ${isActive ? styles.active : ""}`}
-          src={arrow}
-          alt="arrow"
-        />
-      </div>
+      {!isActive && (
+        <div className={styles.dateHeader} onClick={handleOpenCalendar}>
+          {formatDate(selectedDate)}{" "}
+          <img
+            className={`${styles.arrow} ${isActive ? styles.active : ""}`}
+            src={arrow}
+            alt="arrow"
+          />
+        </div>
+      )}
       <div
         className={isActive ? styles.calendarContON : styles.calendarContOFF}
       >
@@ -50,6 +47,7 @@ export default function DatePicker({
             selectedDate={selectedDate}
             handleDayChange={handleDayChange}
             isDateWithClasses={isDateWithClasses}
+            closeCalendar={handleOpenCalendar}
           />
         )}
       </div>

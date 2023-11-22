@@ -8,6 +8,7 @@ export default function CalendarBlock({
   select,
   handleWeekChange,
   isDateWithClasses,
+  closeCalendar,
 }) {
   const [selectedWeek, setSelectedWeek] = useState(null);
   const daysOfWeek = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
@@ -59,53 +60,56 @@ export default function CalendarBlock({
 
     select(selectedDay);
     handleWeekChange(firstDayOfWeek);
+    setTimeout(() => {
+      closeCalendar();
+    }, 300);
   };
 
   return (
-    <div className={styles.calendarDiv}>
-      <table>
-        <thead>
-          <tr>
-            {daysOfWeek.map((day) => (
-              <th key={day}>{day}</th>
+    // <div className={styles.calendarDiv}>
+    <table>
+      <thead>
+        <tr>
+          {daysOfWeek.map((day) => {
+            return <th key={day}>{day}</th>;
+          })}
+        </tr>
+      </thead>
+      <tbody>
+        {chunkArray(days, numCols).map((week, i) => (
+          <tr key={i}>
+            {week.map((day, j) => {
+              const isCurrentDay =
+                date.getMonth() === currentDay.getMonth() &&
+                date.getFullYear() === currentDay.getFullYear() &&
+                day === currentDay.getDate();
+              return (
+                <td
+                  key={j}
+                  className={`${isCurrentDay && styles.current} ${
+                    isDateWithClasses(day) && day && styles.withClasses
+                  }`}
+                  onClick={handleDateSelection}
+                >
+                  {day}
+                </td>
+              );
+            })}
+          </tr>
+        ))}
+        {/* Add empty rows to fill out the table */}
+        {Array.from({
+          length: numRows - chunkArray(days, numCols).length,
+        }).map((_, i) => (
+          <tr key={chunkArray(days, numCols).length + i}>
+            {Array.from({ length: numCols }).map((_, j) => (
+              <td key={j} style={{ width: 50, height: 50 }}></td>
             ))}
           </tr>
-        </thead>
-        <tbody>
-          {chunkArray(days, numCols).map((week, i) => (
-            <tr key={i}>
-              {week.map((day, j) => {
-                const isCurrentDay =
-                  date.getMonth() === currentDay.getMonth() &&
-                  date.getFullYear() === currentDay.getFullYear() &&
-                  day === currentDay.getDate();
-                return (
-                  <td
-                    key={j}
-                    className={`${isCurrentDay && styles.current} ${
-                      isDateWithClasses(day) && styles.withClasses
-                    }`}
-                    onClick={handleDateSelection}
-                  >
-                    {day}
-                  </td>
-                );
-              })}
-            </tr>
-          ))}
-          {/* Add empty rows to fill out the table */}
-          {Array.from({
-            length: numRows - chunkArray(days, numCols).length,
-          }).map((_, i) => (
-            <tr key={chunkArray(days, numCols).length + i}>
-              {Array.from({ length: numCols }).map((_, j) => (
-                <td key={j} style={{ width: 50, height: 50 }}></td>
-              ))}
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
+        ))}
+      </tbody>
+    </table>
+    // </div>
   );
 }
 

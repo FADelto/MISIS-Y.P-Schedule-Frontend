@@ -3,7 +3,7 @@ import styles from "./pagination.module.css";
 import DatePicker from "./date-picker/DatePicker";
 import DayCircles from "./day-circles/DayCircles";
 
-export default function Pagination({ swipe }) {
+export default function Pagination() {
   const today = new Date();
   const weekStart = new Date(today);
   weekStart.setDate(
@@ -35,22 +35,23 @@ export default function Pagination({ swipe }) {
   };
 
   return (
-    <div className={styles.container}>
-      <DayCircles
-        selectedWeek={selectedWeek}
-        selectedDate={selectedDate}
-        isDateWithClasses={isDateWithClasses}
-        handleDayChange={handleDayChange}
-      />
-      <DatePicker
-        weeks={weeks}
-        selectedWeek={selectedWeek}
-        handleWeekChange={handleWeekChange}
-        selectedDate={selectedDate}
-        handleDayChange={handleDayChange}
-        isDateWithClasses={isDateWithClasses}
-        swipe={swipe}
-      />
-    </div>
+    <>
+      <div className={styles.container}>
+        <DayCircles
+          selectedWeek={selectedWeek}
+          selectedDate={selectedDate}
+          isDateWithClasses={isDateWithClasses}
+          handleDayChange={handleDayChange}
+        />
+        <DatePicker
+          weeks={weeks}
+          selectedWeek={selectedWeek}
+          handleWeekChange={handleWeekChange}
+          selectedDate={selectedDate}
+          handleDayChange={handleDayChange}
+          isDateWithClasses={isDateWithClasses}
+        />
+      </div>
+    </>
   );
 }
