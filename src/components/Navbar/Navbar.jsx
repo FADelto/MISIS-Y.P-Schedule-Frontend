@@ -20,7 +20,7 @@ const Navbar = () => {
         }
       },
     }}>``
-      <div class={styles.navbar}>
+      <div className={styles.navbar}>
         <Button className={styles.button}
                 icon={<ScheduleOutlined />}
                 disabled={currentPage === 'Расписание' ? true : false}
