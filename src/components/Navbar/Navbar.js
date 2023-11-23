@@ -19,7 +19,7 @@ const Navbar = () => {
           colorBgContainerDisabled: 'rgba(0, 159, 223, 0.15)',
         }
       },
-    }}>
+    }}>``
       <div class={styles.navbar}>
         <Button className={styles.button}
                 icon={<ScheduleOutlined />}
