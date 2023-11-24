@@ -96,3 +96,10 @@
     height: 9px;
     border-bottom: 1px solid #BBBBBB;
 }
+
+.small_line {
+  width: 12px;
+  height: 9px;
+  border-top: 1px solid #BBBBBB;
+  margin-top: 7px;
+}
