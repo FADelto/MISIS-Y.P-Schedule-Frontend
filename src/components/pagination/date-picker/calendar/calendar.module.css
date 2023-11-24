@@ -258,22 +258,31 @@ tr {
   } */
 }
 
-@media screen and (max-width: 499px) {
-  .calendarDiv {
-    position: relative;
-    min-width: 350px;
-    height: fit-content;
-    /* min-height: 350px; */
-    top: 0%;
-  }
-  td {
-    min-width: 45px;
-    height: 45px;
-  }
-  td:active {
-    -webkit-transition: 0.3s ease;
-    -o-transition: 0.3s ease;
-    transition: 0.3s ease;
-    font-size: 20px;
-  }
+/* @media screen and (max-width: 499px) { */
+.calendarDiv {
+  position: relative;
+  min-width: 350px;
+  height: fit-content;
+  /* min-height: 350px; */
+  top: 0%;
 }
+td {
+  min-width: 30px;
+  height: 30px;
+  padding: 8px;
+}
+.emptyDay {
+  background-color: #1f2229;
+  border-radius: 360px;
+}
+table {
+  border-collapse: separate;
+  border-spacing: 8px; /* Adjust the spacing value as needed */
+}
+td:active {
+  -webkit-transition: 0.3s ease;
+  -o-transition: 0.3s ease;
+  transition: 0.3s ease;
+  font-size: 20px;
+}
+/* } */

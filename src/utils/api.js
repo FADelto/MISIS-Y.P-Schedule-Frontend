@@ -1,7 +1,7 @@
-import { API_CLASSES_CHECK_URL } from "../constants/api";
+import { API_SCHEDULE, API_AVAILABILITY } from "../constants/api";
 
 export const checkClasses = async (setLoading) => {
-  const url = API_CLASSES_CHECK_URL;
+  const url = API_SCHEDULE + API_AVAILABILITY;
   try {
     setLoading(true);
     const response = await fetch(url);

@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./pagination.module.css";
 import DatePicker from "./date-picker/DatePicker";
 import DayCircles from "./day-circles/DayCircles";
+import { availability } from "../../constants/hardcode";
 
 export default function Pagination() {
   const today = new Date();
@@ -11,6 +12,20 @@ export default function Pagination() {
   );
   const [selectedWeek, setSelectedWeek] = useState(weekStart);
   const [selectedDate, setSelectedDate] = useState(new Date());
+  const [classesAvailable, setClassesAvailable] = useState([]);
+
+  useEffect(() => {
+    const year = new Date().getFullYear();
+
+    // setClassesAvailable((prevClassesAvailable) =>
+    //   availability.map((dayNumber) => {
+    //     const date = new Date(year, 0); // January is month 0
+    //     date.setDate(dayNumber);
+    //     return date;
+    //   })
+    // );
+    setClassesAvailable(availability);
+  }, [availability]);
 
   const handleWeekChange = (startOfWeek) => {
     setSelectedWeek(startOfWeek);
@@ -29,9 +44,24 @@ export default function Pagination() {
     weeks.push(startOfWeek);
   }
 
-  const isDateWithClasses = (date) => {
-    const hasClasses = Math.random() < 0.5;
+  const isDateWithClasses = (date, day) => {
+    let dateObj = new Date(date);
+    if (day) {
+      dateObj.setDate(day);
+    }
+    const dayOfYear = getDayOfYear(dateObj);
+    const hasClasses = classesAvailable.includes(dayOfYear);
     return hasClasses;
+  };
+
+  const getDayOfYear = (date) => {
+    const dateObj = new Date(date);
+    const start = new Date(date.getFullYear(), 0, 0);
+    const diff = dateObj - start;
+    const oneDay = 1000 * 60 * 60 * 24;
+    const dayOfYear = Math.floor(diff / oneDay) + 1;
+    // console.log(dayOfYear);
+    return dayOfYear;
   };
 
   return (
@@ -50,6 +80,7 @@ export default function Pagination() {
           selectedDate={selectedDate}
           handleDayChange={handleDayChange}
           isDateWithClasses={isDateWithClasses}
+          classesAvailable={classesAvailable}
         />
       </div>
     </>

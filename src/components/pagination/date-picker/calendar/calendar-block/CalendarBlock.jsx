@@ -86,9 +86,13 @@ export default function CalendarBlock({
               return (
                 <td
                   key={j}
-                  className={`${isCurrentDay && styles.current} ${
-                    isDateWithClasses(day) && day && styles.withClasses
-                  }`}
+                  className={`${
+                    isCurrentDay
+                      ? styles.current
+                      : isDateWithClasses(date, day) && day
+                      ? styles.withClasses
+                      : day && styles.emptyDay
+                  }  ${styles.cellWithPadding}`}
                   onClick={handleDateSelection}
                 >
                   {day}

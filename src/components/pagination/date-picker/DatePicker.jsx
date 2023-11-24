@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
+import { useState, useRef } from "react";
 import styles from "./datePicker.module.css";
 import arrow from "../../../assets/images/dropdown-arrow.png";
-import Calendar from "./calendar/Calendar";
+import ScrollableCal from "./calendar/ScrollableCal";
 
 export default function DatePicker({
   weeks,
@@ -10,8 +10,11 @@ export default function DatePicker({
   selectedDate,
   handleDayChange,
   isDateWithClasses,
+  classesAvailable,
 }) {
+  const scrollRef = useRef(null);
   const [isActive, setIsActive] = useState(false);
+  // const [loading, setLoading] = useState(false);
 
   const formatDate = (date) => {
     const options = { day: "numeric", month: "long", year: "numeric" };
@@ -26,31 +29,43 @@ export default function DatePicker({
     setIsActive(!isActive);
   };
 
+  // Create Date objects for the start and end dates
+  const minDay = Math.min(...classesAvailable);
+  const maxDay = Math.max(...classesAvailable);
+
+  const currentYear = new Date().getFullYear();
+
+  const startDate = new Date(currentYear, 0);
+  startDate.setDate(minDay);
+
+  const endDate = new Date(currentYear, 0);
+  endDate.setMonth(0);
+  endDate.setDate(maxDay);
+
   return (
-    <div className={isActive ? styles.openCalendar : styles.pickerContainer}>
-      {!isActive && (
+    <div
+      className={isActive ? styles.openCalendar : styles.pickerContainer}
+      ref={scrollRef}
+    >
+      {!isActive ? (
         <div className={styles.dateHeader} onClick={handleOpenCalendar}>
           {formatDate(selectedDate)}{" "}
-          <img
-            className={`${styles.arrow} ${isActive ? styles.active : ""}`}
-            src={arrow}
-            alt="arrow"
+          <img className={styles.arrow} src={arrow} alt="arrow" />
+        </div>
+      ) : (
+        <div className={styles.cal}>
+          <ScrollableCal
+            startDate={startDate}
+            endDate={endDate}
+            currentDay={selectedDate}
+            select={handleDayChange}
+            handleWeekChange={handleWeekChange}
+            isDateWithClasses={isDateWithClasses}
+            closeCalendar={handleOpenCalendar}
+            scrollRef={scrollRef}
           />
         </div>
       )}
-      <div
-        className={isActive ? styles.calendarContON : styles.calendarContOFF}
-      >
-        {isActive && (
-          <Calendar
-            handleWeekChange={handleWeekChange}
-            selectedDate={selectedDate}
-            handleDayChange={handleDayChange}
-            isDateWithClasses={isDateWithClasses}
-            closeCalendar={handleOpenCalendar}
-          />
-        )}
-      </div>
     </div>
   );
 }
