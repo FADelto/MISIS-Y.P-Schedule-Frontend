@@ -1,11 +1,13 @@
 .navbar {
-    width: 375px;
+    width: 321px;
+    height: 56px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 20px;
     font-size: 15px;
     margin-bottom: 20px;
+    padding: 4px 27px 21px 27px; 
 }
 
 .button:disabled {

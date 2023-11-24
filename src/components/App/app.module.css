@@ -1,7 +1,5 @@
-.app {
-  box-sizing: border-box;
-  display: flex;
-  justify-content: space-between;
-  padding: 20px;
-  background-color: #181A1F;
+.App {
+  margin: 0;
+  padding: 0;
 }
+

@@ -25,7 +25,5 @@ html,
 
 #root {
   background-color: #181a1f; /* Set your desired background color */
-  display: flex;
-  align-items: center;
-  justify-content: center;
+
 }
