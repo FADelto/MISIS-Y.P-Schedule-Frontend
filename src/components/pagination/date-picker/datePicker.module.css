@@ -31,6 +31,7 @@
   transition: all 0.3s ease;
   opacity: 0;
   animation: smoothlyAppear forwards 0.5s ease;
+  z-index: 20;
 }
 
 @keyframes smoothlyAppear {

@@ -2,8 +2,18 @@ import React, { useState, useEffect } from "react";
 import styles from "./pagination.module.css";
 import DatePicker from "./date-picker/DatePicker";
 import DayCircles from "./day-circles/DayCircles";
+import { checkClasses, getClasses } from "../../utils/api";
+import { getDayOfYear } from "../../utils/dateActions";
 
-export default function Pagination({ availability }) {
+export default function Pagination({
+  availability,
+  setDateRange,
+  setChosenDay,
+  setLoading,
+  setAvailability,
+  dateRange,
+  setClasses,
+}) {
   const today = new Date();
   const weekStart = new Date(today);
   weekStart.setDate(
@@ -14,8 +24,39 @@ export default function Pagination({ availability }) {
   const [classesAvailable, setClassesAvailable] = useState([]);
 
   useEffect(() => {
+    console.log("useEffect triggered");
+    const fetchData = async () => {
+      try {
+        console.log("Fetching availability...");
+        const data = await checkClasses(setLoading);
+        console.log("Availability fetched:", data);
+        setClassesAvailable(data);
+      } catch (error) {
+        console.error("Error fetching availability:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+  useEffect(() => {
+    console.log("useEffect triggered");
+
+    const fetchClasses = async () => {
+      try {
+        console.log("Fetching data...");
+        const data = await getClasses(dateRange);
+        console.log("Data fetched:", data);
+        setClasses(data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+    fetchClasses();
+  }, [dateRange]);
+
+  useEffect(() => {
     setClassesAvailable(availability);
-  }, [availability]);
+  }, []);
 
   const handleWeekChange = (startOfWeek) => {
     setSelectedWeek(startOfWeek);
@@ -44,15 +85,19 @@ export default function Pagination({ availability }) {
     return hasClasses;
   };
 
-  const getDayOfYear = (date) => {
-    const dateObj = new Date(date);
-    const start = new Date(date.getFullYear(), 0, 0);
-    const diff = dateObj - start;
-    const oneDay = 1000 * 60 * 60 * 24;
-    const dayOfYear = Math.floor(diff / oneDay) + 1;
-    // console.log(dayOfYear);
-    return dayOfYear;
-  };
+  useEffect(() => {
+    setDateRange({
+      firstDate: getDayOfYear(selectedWeek) - 1,
+      secondDate: getDayOfYear(selectedWeek) + 7,
+    });
+  }, [selectedWeek]);
+
+  useEffect(() => {
+    setChosenDay((prevChosenDay) => {
+      const newChosenDay = getDayOfYear(selectedDate);
+      return newChosenDay;
+    });
+  }, [selectedDate]);
 
   return (
     <>
