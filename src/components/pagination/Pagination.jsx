@@ -2,9 +2,8 @@ import React, { useState, useEffect } from "react";
 import styles from "./pagination.module.css";
 import DatePicker from "./date-picker/DatePicker";
 import DayCircles from "./day-circles/DayCircles";
-import { availability } from "../../constants/hardcode";
 
-export default function Pagination() {
+export default function Pagination({ availability }) {
   const today = new Date();
   const weekStart = new Date(today);
   weekStart.setDate(
@@ -15,15 +14,6 @@ export default function Pagination() {
   const [classesAvailable, setClassesAvailable] = useState([]);
 
   useEffect(() => {
-    const year = new Date().getFullYear();
-
-    // setClassesAvailable((prevClassesAvailable) =>
-    //   availability.map((dayNumber) => {
-    //     const date = new Date(year, 0); // January is month 0
-    //     date.setDate(dayNumber);
-    //     return date;
-    //   })
-    // );
     setClassesAvailable(availability);
   }, [availability]);
 
