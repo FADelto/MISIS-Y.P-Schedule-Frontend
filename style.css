@@ -1,0 +1,214 @@
+.page {
+  background: #1f2229;
+}
+
+/* header */
+
+.ios__status-bar {
+  display: flex;
+  padding: 13px 16px 13px 32px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.time {
+  color: #fff;
+  text-align: center;
+  font-family: SF__UI-Text;
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 22px; /* 129.412% */
+}
+
+.wrapper {
+  display: flex;
+  gap: 8px;
+}
+
+.navigationbar-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 11px;
+  height: 42px;
+}
+
+.left__accessory {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 2px;
+  padding: 8px 8px 8px 4px;
+}
+
+.navigation__title {
+  color: #009fdf;
+  font-family: SF__UI-Text;
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px; /* 141.176% */
+  letter-spacing: -0.408px;
+}
+
+/* main */
+
+.main {
+  background-image: url(Vector.svg);
+  height: 635px;
+}
+
+.main__title-text {
+  color: #fff;
+  font-feature-settings: "clig" off, "liga" off;
+  font-family: SF__UI-Text;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 18px; /* 90% */
+  letter-spacing: -0.078px;
+  margin: 16px 0 13px 10px;
+}
+
+.main__type {
+  display: flex;
+  align-items: center;
+  background: #3cb371;
+  height: 48.432px;
+}
+
+.main__type-text {
+  color: #333;
+  font-feature-settings: "clig" off, "liga" off;
+  font-family: SF__UI-Text;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 18px; /* 120% */
+  letter-spacing: -0.078px;
+  margin-left: 10px;
+}
+
+.main__box {
+  border-bottom: 1px solid #3d3d40;
+  margin-left: 9px;
+  display: flex;
+  flex-direction: column;
+}
+
+.main__content-title {
+  color: #bbb;
+  font-feature-settings: "clig" off, "liga" off;
+  font-family: SF__UI-Text;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 18px; /* 112.5% */
+  letter-spacing: -0.078px;
+  margin-top: 9px;
+  margin-bottom: 7px;
+}
+
+.main__date {
+  padding-top: 9px;
+}
+
+.main__date-text {
+  color: #fff;
+  font-feature-settings: "clig" off, "liga" off;
+  font-family: SF__UI-Text;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px; /* 100% */
+  letter-spacing: -0.078px;
+  margin-bottom: 8px;
+}
+
+.main__link-text {
+  color: #009fdf;
+  font-feature-settings: "clig" off, "liga" off;
+  font-family: SF__UI-Text;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 18px; /* 112.5% */
+  letter-spacing: -0.078px;
+  text-decoration-line: underline;
+  margin-bottom: 15px;
+}
+
+.main__link-text2 {
+  margin-top: 4px;
+  margin-bottom: 14px;
+}
+
+.main__lecturer-text {
+  color: #fff;
+  font-feature-settings: "clig" off, "liga" off;
+  font-family: SF__UI-Text;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px; /* 112.5% */
+  letter-spacing: -0.078px;
+  margin-bottom: 9px;
+}
+
+.main__hometask {
+  margin-left: 9px;
+}
+
+.main__hometask-title {
+  margin-top: 7px;
+}
+
+.main__hometask-text {
+  color: #fff;
+  font-feature-settings: "clig" off, "liga" off;
+  font-family: SF__UI-Text;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px; /* 112.5% */
+  letter-spacing: -0.078px;
+  width: 327px;
+  margin-bottom: 184px;
+}
+
+/* footer */
+
+.footer {
+  width: 375px;
+  height: 87px;
+}
+
+.footer__box {
+  background: #181a1f;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 9px 27px 27px 27px;
+}
+
+.footer__schedule {
+  display: flex;
+  padding: 10px 9px;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  border-radius: 15px;
+  background: rgba(0, 159, 223, 0.15);
+}
+
+.footer__schedule-text {
+  color: #009fdf;
+  font-feature-settings: "clig" off, "liga" off;
+  font-family: SF__UI-Display;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 18px; /* 120% */
+  letter-spacing: 0.16px;
+}

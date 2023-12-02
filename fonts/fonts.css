@@ -1,0 +1,17 @@
+/* В этом файле вы импортируете все шрифты для сайта. Один из них вариативный и требует особенной настройки */
+
+@font-face {
+    font-display: swap;
+    font-family: 'SF__UI-Text';
+    src: 
+      local('SFUIText-Regular'),
+      url(../fonts/SFUIText-Regular.woff2) format('woff2');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'SF__UI-Display';
+  src: 
+    local('SFUIDisplay-Regular'),
+    url('../fonts/SFUIDisplay-Regular.woff2') format('woff2')
+}
