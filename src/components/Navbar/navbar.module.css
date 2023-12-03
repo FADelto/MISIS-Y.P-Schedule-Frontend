@@ -1,0 +1,65 @@
+.navbar {
+    position: fixed; 
+    max-width: 1440px;
+    bottom: 0; 
+    width: 100%;
+    z-index: 500;
+    opacity: 100%;
+    margin: 0 auto;
+    height: 87px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
+    font-size: 15px;
+    background-color: #181A1F;
+}
+
+.button:disabled {
+    cursor: default;
+}
+
+.button {
+    font-size: 15px;
+    padding: 20px 18px;
+    display: flex;
+    gap: 12px;
+    color: #009FDF;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: color 3s;
+    line-height: 18px;
+    font-weight: 600;
+}
+
+.button:hover {
+    color: white;
+    
+}
+
+.buttonActive {
+    background-color: rgba(0, 159, 223, 0.15);
+    border-radius: 15px;
+    font-size: 15px;
+    padding: 0px 18px;
+    display: flex;
+    gap: 12px;
+    color: #009FDF;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: color 3s;
+    line-height: 18px;
+    font-weight: 600;
+    cursor: default;
+}
+
+@media (width < 576px) {
+    .navbar {
+        
+    }
+}
+
+
+

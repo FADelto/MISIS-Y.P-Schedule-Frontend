@@ -1,0 +1,18 @@
+.p {
+    padding-top: 10px;
+    padding-right: 60px;
+    color: #FFF;
+}
+
+.NewsItem {
+    position: relative;
+    width: 70%;
+    padding-right: 60px;
+    background-color: rgba(31, 34, 41, 0.90);
+    margin: 10px;
+    border-radius: 15px;
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-bottom: 20px;
+    margin-left: 20px;
+}

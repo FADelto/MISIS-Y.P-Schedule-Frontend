@@ -1,0 +1,11 @@
+.Schedule {
+    flex: 1 0 auto;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.title {
+    text-align: center;
+    color: white;
+}

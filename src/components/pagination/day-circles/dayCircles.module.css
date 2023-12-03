@@ -1,0 +1,44 @@
+.dayCirclesContainer {
+  position: relative;
+  width: 100%;
+  /* border: 1px solid white; */
+  height: 40%;
+  max-height: 50px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  transition: top 0.3s ease;
+  /* margin-top: 60%; */
+}
+
+.circle {
+  width: 35px;
+  border-radius: 50%;
+  height: 35px;
+  background-color: white;
+}
+.dayCircle {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  background-color: #1f2229;
+  box-shadow: 1px 3px 1px #131416;
+  color: white;
+}
+
+.hasClasses {
+  border-color: #009fdf;
+  /* box-shadow: none; */
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.selected {
+  background-color: #009fdf;
+  color: white;
+  /* box-shadow: none; */
+}
