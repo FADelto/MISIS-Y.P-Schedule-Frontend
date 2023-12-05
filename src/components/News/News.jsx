@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import style from './news.module.css';
-import NewsList from '../NewsList.jsx/NewsList';
+import NewsList from '../NewsList/NewsList';
 import { ColorRing } from 'react-loader-spinner';
 
 const apiURL = "http://deltoserver.ddns.net:8080/api/news";
@@ -51,7 +51,7 @@ function News() {
                   ariaLabel="blocks-loading"
                   wrapperStyle={{}}
                   wrapperClass="blocks-wrapper"
-                  colors={['#e15b64', '#f47e60', '#f8b26a', '#abbd81', '#849b87']}
+                  colors={['black', 'blue', 'white', '#abbd81', '#849b87']}
             />
           </div> 
           : 

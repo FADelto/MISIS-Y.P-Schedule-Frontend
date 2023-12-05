@@ -1,5 +1,7 @@
 import React from 'react';
 import styles from './NewsItem.module.css';
+import document from '../../assets/images/document.png';
+import Linkify from 'react-linkify';
 
 const NewsItem = ({ post }) => {
 
@@ -83,8 +85,13 @@ let dateTitle = showMessageDateTime(newsDate);
         {dateTitle}
       </div> 
       <div className={styles.NewsText}>
-        {text.map((p) => <div key={p.index} className={styles.p}>{p}</div>)}
+        {text.map((p) => <Linkify><div key={p.index} className={styles.p}>{p}</div></Linkify>)}
         {images ? images.map(image => <img src={`${image}`} style={{padding: '10px', width: '70%'}}/>) : ''}
+        {files ? files.map(file =>
+          <a href={`${file}`}>
+            <img style={{width: '100px'}} src={document}/>
+          </a>)
+        : ''}
       </div>   
     </div>
   )
