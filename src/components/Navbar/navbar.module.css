@@ -1,6 +1,10 @@
+a {
+    text-decoration: none;
+}
+
 .navbar {
     position: fixed; 
-    max-width: 1440px;
+    
     bottom: 0; 
     width: 100%;
     z-index: 500;
