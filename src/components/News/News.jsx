@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import style from './news.module.css';
-import NewsItem from '../NewsItem/NewsItem';
-import { Spin, ConfigProvider } from 'antd';
+import NewsList from '../NewsList.jsx/NewsList';
+import { ColorRing } from 'react-loader-spinner';
 
-const apiURL = "http://deltoserver.ddns.net:8080/api/News";
+const apiURL = "http://deltoserver.ddns.net:8080/api/news";
 
 function News() {
   const [loading, setLoading] = useState(false);
@@ -13,8 +13,9 @@ function News() {
   useEffect(() => {
     setLoading(true);
     axios.get(apiURL).then((response) => {
-      console.log(response.data)
-      let latest = response.data.reverse().slice(0, 7);
+        console.log(response.data)
+      // let latest = response.data.reverse().slice(0, 7);
+      let latest = response.data.reverse();
       setNews(latest);
       setLoading(false);
     });
@@ -24,17 +25,9 @@ function News() {
 
   if (!news) return null;
 
-  return (
-    <ConfigProvider
-      theme={{
-        components: {
-          Spin: {
-            dotSizeLG: '500',
-          }
-        },
-      }}>
-        <div className={style.news}>
-          <div className={style.header}>
+  function Header() {
+    return (
+      <div className={style.header}>
             <h1 className={style.title}>Новости</h1>
             <div className={style.icon}>
             <svg width="21" height="21" viewBox="0 0 21 21" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -42,10 +35,30 @@ function News() {
             </svg>
             </div>
           </div>
-          {loading ? <div><Spin fullscreen={true}/></div> : 
-          news.map(item => <NewsItem key={item.createdAt} date={item.createdAt} content={item.content}/>)}
+    )
+  }
+
+  return (
+        <div className={style.news}>
+          <Header />
+          {loading 
+          ? 
+          <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+            <ColorRing
+                  visible={true}
+                  height="100"
+                  width="100"
+                  ariaLabel="blocks-loading"
+                  wrapperStyle={{}}
+                  wrapperClass="blocks-wrapper"
+                  colors={['#e15b64', '#f47e60', '#f8b26a', '#abbd81', '#849b87']}
+            />
+          </div> 
+          : 
+          <NewsList news={news}/>}
+          
+        
         </div>
-      </ConfigProvider>
     
   )
 }

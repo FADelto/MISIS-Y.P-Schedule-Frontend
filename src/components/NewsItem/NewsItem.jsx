@@ -1,13 +1,34 @@
 import React from 'react';
 import styles from './NewsItem.module.css';
 
-const NewsItem = ({date, content}) => {
-  console.log(date);
+const NewsItem = ({ post }) => {
 
-  let newsDate = new Date(date.toLocaleString());
-  console.log(newsDate);
+  let images = [];
+  let files = [];
 
-  let text = content.replaceAll('"', '').replaceAll('\\n', 'newLine').replaceAll('\\r', '').split('newLine');
+  let newsDate = new Date(post.date.toLocaleString());
+
+  let text = post.text.replaceAll('"', '').replaceAll('\\n', 'newLine').replaceAll('\\r', '').split('newLine');
+
+  console.log(post.links)
+
+  if (post.links) {
+    post.links.map(i => {
+      if (i.newsLinksType === 'IMAGES') {
+        images.push(i.newsLink)
+      }
+    })
+  }
+
+  if (post.links) {
+    post.links.map(i => {
+      if (i.newsLinksType === 'FILES') {
+        files.push(i.newsLink)
+      }
+    })
+  }
+
+  console.log(images);
   
   let day = newsDate.getDate();
   let month = newsDate.toLocaleString('ru', { month: 'long' }).slice(0, -1) + 'я';
@@ -20,7 +41,6 @@ const NewsItem = ({date, content}) => {
   if (minutes < 10) {
     minutes = '0' + minutes;
   }
-  console.log(minutes);
   
   function dropHMS(date) {
     date.setHours(0);
@@ -55,15 +75,16 @@ const NewsItem = ({date, content}) => {
     }
 }
 
-let message = showMessageDateTime(newsDate);
+let dateTitle = showMessageDateTime(newsDate);
 
   return (
     <div>
       <div style={{textAlign: 'center', paddingTop: '20px', color: '#BBB'}}>
-        {message}
+        {dateTitle}
       </div> 
-      <div className={styles.NewsItem}>
+      <div className={styles.NewsText}>
         {text.map((p) => <div key={p.index} className={styles.p}>{p}</div>)}
+        {images ? images.map(image => <img src={`${image}`} style={{padding: '10px', width: '70%'}}/>) : ''}
       </div>   
     </div>
   )
