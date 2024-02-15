@@ -267,7 +267,7 @@ tr {
   top: 0%;
 }
 td {
-  min-width: 30px;
+  width: 30px;
   height: 30px;
   padding: 8px;
 }

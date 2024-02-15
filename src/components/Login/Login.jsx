@@ -1,7 +1,7 @@
 
 import { useEffect } from 'react'
 import { Navigate } from 'react-router-dom'
-
+import HelloPage from './HelloPage'
 
 const Login = ({auth, login, logout}) => {
     useEffect(()=>{
@@ -12,9 +12,9 @@ const Login = ({auth, login, logout}) => {
     return (
         <>
           {!auth ? (
-            <button onClick={login}>Login</button>
+              <HelloPage login={login}/>
           ) : (
-            <Navigate to="/" />
+            <Navigate to="/schedule" />
           )}
         </>
     )

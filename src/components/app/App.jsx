@@ -2,62 +2,48 @@ import styles from "./App.module.css";
 import Pagination from "../pagination/Pagination";
 import { useEffect, useState } from "react";
 import { checkClasses } from "../../utils/api";
-import { BrowserRouter as Router, Routes, Route, Link, Navigate } from 'react-router-dom';
-import { useAuth } from '../../services/AuthContext';
-import PrivateRoute from '../../services/PrivateRoute';
-import Login from '../Login/Login';
+import Navbar from "../navbar/Navbar";
+import { availability as hardcoredAvailability } from '../../constants/hardcode.js';
+import Classes from "../Classes/Classes";
+import { getDayOfYear, getCurrentWeekDates } from "../../utils/dateActions";
+
 
 function App() {
   const [loading, setLoading] = useState(false);
   const [availability, setAvailability] = useState([]);
-  const { isAuthenticated, login, logout } = useAuth();
-
-  useEffect(() => {
-    console.log("useEffect triggered");
-    const fetchData = async () => {
-      try {
-        console.log("Fetching data...");
-        const data = await checkClasses(setLoading);
-        console.log("Data fetched:", data);
-        setAvailability(data);
-        // Other asynchronous logic
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
-
-    fetchData();
-  }, [setAvailability]);
+  const [classes, setClasses] = useState([]);
+  const [dateRange, setDateRange] = useState(getCurrentWeekDates());
+  const [chosenDay, setChosenDay] = useState(getDayOfYear(new Date()));
+  const [tab, setTab] = useState(0);
   
+  const tabSetting = {
+    'schedule': 0,
+    'tasks': 1,
+    'news': 2,
+    'settings': 3
+  };
 
   return (
-    <div className={styles.App}>
-      <Pagination availability={availability} />
-    </div>
+      <div className={styles.App}>
+        {tab === 0 && (
+          <>
+            <Pagination
+              availability={availability}
+              setDateRange={setDateRange}
+              setChosenDay={setChosenDay}
+              setLoading={setLoading}
+              dateRange={dateRange}
+              setAvailability={setAvailability}
+              setClasses={setClasses}
+            />
+
+            <Classes classes={classes} chosenDay={chosenDay} />
+          </>
+        )}  
+          <Navbar tabSetting={tabSetting} setTab={setTab} />
+      </div>
+          
   );
-}
-
-
-export const DefaultRouter = () => {
-  const { isAuthenticated, login, logout } = useAuth();
-    useEffect(()=>{
-        console.log('auth in router:');
-        console.log(isAuthenticated)
-        console.log('--------------')
-    },[])
-
-
-    return (
-      <Router>
-        <Routes>
-          <Route path="/" element={<PrivateRoute element={<App />} />} />
-          <Route
-              path="/login"
-              element={<Login auth={isAuthenticated} login={login} logout={logout} />}
-          />
-        </Routes>
-      </Router>
-    )
 
 }
 

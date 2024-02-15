@@ -1,0 +1,27 @@
+.navbar {
+  margin: 10px;
+  width: 98vw;
+  position: relative;
+  min-height: 56px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  font-size: 15px;
+  margin-bottom: 0px;
+  padding: 4px 27px 21px 27px;
+  bottom: 0;
+  z-index: 10;
+}
+
+.button:disabled {
+  cursor: default;
+}
+
+.button {
+  font-size: 15px;
+  padding: 20px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
