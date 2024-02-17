@@ -3,6 +3,7 @@ import logo from "../../assets/images/misis-logo.svg"
 import styles from "./registration.module.css"
 import plus from "../../assets/images/plus-sign.svg"
 import hiddePassIcon from "../../assets/images/hidePassIcon.svg"
+import leftArrow from "../../assets/images/left-arrow.svg"
 import { useFilePicker } from 'use-file-picker';
 import {
     FileAmountLimitValidator,
@@ -10,9 +11,11 @@ import {
     FileSizeValidator,
     ImageDimensionsValidator,
 } from 'use-file-picker/validators';
+import { Navigate } from 'react-router-dom'
 
 export default function Registration() {
     const [showPass, setShowPass] = useState(false);
+    const [goBack, setGoBack] = useState(false);
     const { openFilePicker, filesContent, loading, errors } = useFilePicker({
         readAs: 'DataURL',
         accept: 'image/*',
@@ -22,6 +25,13 @@ export default function Registration() {
             new FileTypeValidator(['jpg', 'png']),
         ],
     });
+
+    if (goBack) {
+        //setGoBack(false);
+        console.log(goBack);
+        return <Navigate to="/login" />
+    }
+
     return (
         <div className={styles.registrationCont}>
             <div className={styles.header}>
@@ -47,7 +57,7 @@ export default function Registration() {
                 <input placeholder='Группа' className={`${styles.input} ${styles.group}`}></input>
                 <input placeholder='Имя' className={`${styles.input} ${styles.name}`}></input>
                 <button className={styles.register}>Зарегистрироваться</button>
-                <p className={styles.signInText}>Есть аккаунт? <span className={styles.signInButton}>Войти</span></p>
+                <div className={styles.signInText}><img onClick={() => setGoBack(true)} className={styles.leftArrow} src={leftArrow} alt='pass' /><span>Есть аккаунт? <span className={styles.signInButton}>Войти</span></span></div>
             </div>
         </div>
     )

@@ -95,6 +95,9 @@
 
 .signInText {
     color: #969696;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .signInButton {
@@ -111,4 +114,11 @@
     color: white;
     font-size: 17px;
     box-sizing: border-box;
+}
+
+.leftArrow {
+    height: 15px;
+    width: 15px;
+    align-self: center;
+    margin-right: 10px;
 }
