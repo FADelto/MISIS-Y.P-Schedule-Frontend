@@ -7,6 +7,7 @@ import App from '../components/app/App';
 import Registration from '../components/Login/Registration/Registration';
 import SignIn from '../components/Login/SignIn/SignIn';
 import ForgotPass from '../components/Login/ForgotPass/ForgotPass';
+import PageNotFound from './PageNotFound/PageNotFound';
 
 
 
@@ -34,6 +35,10 @@ const DefaultRouter = () => {
         <Route
           path="/password"
           element={<ForgotPass />}
+        />
+        <Route
+          path="*"
+          element={<PageNotFound />}
         />
       </Routes>
     </Router>
