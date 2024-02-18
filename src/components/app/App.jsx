@@ -1,11 +1,10 @@
 import styles from "./App.module.css";
 import Pagination from "../pagination/Pagination";
-import { useEffect, useState } from "react";
-import { checkClasses } from "../../utils/api";
+import { useState } from "react";
 import Navbar from "../navbar/Navbar";
-import { availability as hardcoredAvailability } from '../../constants/hardcode.js';
 import Classes from "../Classes/Classes";
 import { getDayOfYear, getCurrentWeekDates } from "../../utils/dateActions";
+import ClassPage from "../Classes/ClassPage/ClassPage";
 
 
 function App() {
@@ -15,7 +14,8 @@ function App() {
   const [dateRange, setDateRange] = useState(getCurrentWeekDates());
   const [chosenDay, setChosenDay] = useState(getDayOfYear(new Date()));
   const [tab, setTab] = useState(0);
-  
+  const [hidePagination, setHidePagination] = useState(false);
+
   const tabSetting = {
     'schedule': 0,
     'tasks': 1,
@@ -24,25 +24,26 @@ function App() {
   };
 
   return (
-      <div className={styles.App}>
-        {tab === 0 && (
-          <>
-            <Pagination
-              availability={availability}
-              setDateRange={setDateRange}
-              setChosenDay={setChosenDay}
-              setLoading={setLoading}
-              dateRange={dateRange}
-              setAvailability={setAvailability}
-              setClasses={setClasses}
-            />
+    <div className={styles.App}>
+      {tab === 0 && (
+        <>
+          {!hidePagination && (<Pagination
+            availability={availability}
+            setDateRange={setDateRange}
+            setChosenDay={setChosenDay}
+            setLoading={setLoading}
+            dateRange={dateRange}
+            setAvailability={setAvailability}
+            setClasses={setClasses}
+          />
+          )}
+          <Classes classes={classes} chosenDay={chosenDay} setHidePagination={setHidePagination} />
+        </>
 
-            <Classes classes={classes} chosenDay={chosenDay} />
-          </>
-        )}  
-          <Navbar tabSetting={tabSetting} setTab={setTab} />
-      </div>
-          
+      )}
+      <Navbar tabSetting={tabSetting} setTab={setTab} />
+    </div>
+
   );
 
 }

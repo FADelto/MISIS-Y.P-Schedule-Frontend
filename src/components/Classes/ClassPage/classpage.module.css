@@ -1,0 +1,31 @@
+.mainContainer {
+    border: 1px solid red;
+    position: relative;
+    top: 0;
+    height: 95vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    /* position: absolute; */
+}
+
+.header {
+    height: 42px;
+    width: 95%;
+    border: 1px solid blue;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #009FDF;
+    font-size: 17px;
+}
+
+.leftArrow {
+    height: 17px;
+    color: #009FDF;
+}
+
+.backButton {
+    display: flex;
+    align-items: center;
+}

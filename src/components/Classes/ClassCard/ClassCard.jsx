@@ -2,23 +2,30 @@ import React from "react";
 import styles from "../classes.module.css";
 import logo from "../../../assets/images/misis-logo.png";
 
-export default function ClassCard({ className, classType, time }) {
+export default function ClassCard({ className, classType, time, setOpenClass, setHidePagination }) {
+
+  const handleClassOpen = () => {
+    if (!!className) {
+      setOpenClass(true);
+      setHidePagination(true);
+    }
+  }
+
   return (
     <div>
-      <div className={styles.class}>
+      <div className={styles.class} onClick={handleClassOpen}>
         <div className={styles.block1}>
           <div className={styles.time}>
             {time.start} <br />-<br />
             {time.end}
           </div>
           <div
-            className={`${styles.type} ${
-              classType === "П"
-                ? styles.type1
-                : classType === "Л"
+            className={`${styles.type} ${classType === "П"
+              ? styles.type1
+              : classType === "Л"
                 ? styles.type2
                 : ""
-            }`}
+              }`}
           >
             <div>
               {classType === "П" || classType === "Л" ? (
