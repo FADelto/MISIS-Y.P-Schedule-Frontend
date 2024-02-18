@@ -1,23 +1,25 @@
 .mainContainer {
-    border: 1px solid red;
+    /* border: 1px solid red; */
     position: relative;
     top: 0;
     height: 95vh;
     width: 100vw;
     display: flex;
     justify-content: center;
+    flex-direction: column;
     /* position: absolute; */
 }
 
 .header {
     height: 42px;
     width: 95%;
-    border: 1px solid blue;
+    /* border: 1px solid blue; */
     display: flex;
     align-items: center;
     justify-content: space-between;
     color: #009FDF;
     font-size: 17px;
+    background-color: #1F2229;
 }
 
 .leftArrow {
@@ -28,4 +30,34 @@
 .backButton {
     display: flex;
     align-items: center;
+}
+
+.classBody {
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+.title {
+    color: white;
+    min-height: 47px;
+    background-color: #1F2229;
+    padding-left: 9px;
+    font-size: 20px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+}
+.classType {
+    color: #333333;
+    min-height: 47px;
+    background-color: #1F2229;
+    padding-left: 9px;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.green {
+    background-color: #3CB371;
 }

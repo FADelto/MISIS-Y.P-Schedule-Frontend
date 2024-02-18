@@ -6,6 +6,7 @@ import ClassPage from "./ClassPage/ClassPage";
 export default function Classes({ classes, chosenDay, setHidePagination }) {
   const [currentClasses, setCurrentClasses] = useState(classes);
   const [openClass, setOpenClass] = useState(false);
+  const [chosenClass, setChosenClass] = useState({});
 
 
   useEffect(() => {
@@ -71,11 +72,13 @@ export default function Classes({ classes, chosenDay, setHidePagination }) {
               classType={classTypes[classType]}
               setOpenClass={setOpenClass}
               setHidePagination={setHidePagination}
+              setChosenClass={setChosenClass}
             />
           );
         })}
       </div>) : (
         <ClassPage
+          chosenClass={chosenClass}
           setOpenClass={setOpenClass}
           setHidePagination={setHidePagination}
         />

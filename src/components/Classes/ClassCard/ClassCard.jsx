@@ -2,12 +2,17 @@ import React from "react";
 import styles from "../classes.module.css";
 import logo from "../../../assets/images/misis-logo.png";
 
-export default function ClassCard({ className, classType, time, setOpenClass, setHidePagination }) {
+export default function ClassCard({ className, classType, time, setOpenClass, setHidePagination, setChosenClass }) {
 
   const handleClassOpen = () => {
     if (!!className) {
       setOpenClass(true);
       setHidePagination(true);
+      setChosenClass({
+        className,
+        classType,
+        time
+      })
     }
   }
 
