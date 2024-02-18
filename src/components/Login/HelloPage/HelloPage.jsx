@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './HelloPage.module.css';
 
-const HelloPage = ({ login, setSignOn }) => {
+const HelloPage = ({ login, setSignIn }) => {
 
     return (
         <>
@@ -18,7 +18,7 @@ const HelloPage = ({ login, setSignOn }) => {
                 </div>
 
                 <div className={styles.buttonContainer}>
-                    <button className={styles.authenticateBut} onClick={() => setSignOn(true)}>Продолжить с авторизацией</button>
+                    <button className={styles.authenticateBut} onClick={() => setSignIn(true)}>Продолжить с авторизацией</button>
                     <button className={styles.fakeAuthBut} onClick={login}>Продолжить без авторизации</button>
                 </div>
             </div>

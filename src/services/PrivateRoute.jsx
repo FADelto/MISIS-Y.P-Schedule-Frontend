@@ -5,13 +5,13 @@ import { Navigate } from 'react-router-dom'
 export default function PrivateRoute({ element, path }) {
     const { isAuthenticated } = useAuth();
 
-    useEffect(()=>{
+    useEffect(() => {
         console.log(isAuthenticated)
         console.log(typeof isAuthenticated);
     }, [])
 
     if (!isAuthenticated) {
-        return <Navigate to="/login" />;
+        return <Navigate to="/welcome" />;
     }
 
     return element;

@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import logo from "../../assets/images/misis-logo.svg"
+import logo from "../../../assets/images/misis-logo.svg"
 import styles from "./registration.module.css"
-import plus from "../../assets/images/plus-sign.svg"
-import hiddePassIcon from "../../assets/images/hidePassIcon.svg"
-import leftArrow from "../../assets/images/left-arrow.svg"
+import plus from "../../../assets/images/plus-sign.svg"
+import hiddePassIcon from "../../../assets/images/hidePassIcon.svg"
+import leftArrow from "../../../assets/images/left-arrow.svg"
 import { useFilePicker } from 'use-file-picker';
 import {
     FileAmountLimitValidator,
@@ -25,11 +25,17 @@ export default function Registration() {
             new FileTypeValidator(['jpg', 'png']),
         ],
     });
+    const [signIn, setSignIn] = useState(false);
+
+
+    if (signIn) {
+        return <Navigate to="/signin" />
+    }
 
     if (goBack) {
         //setGoBack(false);
         console.log(goBack);
-        return <Navigate to="/login" />
+        return <Navigate to="/welcome" />
     }
 
     return (
@@ -57,7 +63,9 @@ export default function Registration() {
                 <input placeholder='Группа' className={`${styles.input} ${styles.group}`}></input>
                 <input placeholder='Имя' className={`${styles.input} ${styles.name}`}></input>
                 <button className={styles.register}>Зарегистрироваться</button>
-                <div className={styles.signInText}><img onClick={() => setGoBack(true)} className={styles.leftArrow} src={leftArrow} alt='pass' /><span>Есть аккаунт? <span className={styles.signInButton}>Войти</span></span></div>
+                <div className={styles.signInText}>
+                    <img onClick={() => setGoBack(true)} className={styles.leftArrow} src={leftArrow} alt='pass' />
+                    <span>Есть аккаунт? <span className={styles.signInButton} onClick={() => setSignIn(true)}>Войти</span></span></div>
             </div>
         </div>
     )
